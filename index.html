@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Tempo – o zi planificată pe ritmul tău</title>
+  <meta name="description" content="Tempo este planificatorul de zi care învață ritmul tău. Intră în lista de așteptare, invită prieteni și votează funcțiile pe care le construim primele.">
+  <meta name="theme-color" content="#7c3aed">
+  <meta property="og:title" content="Tempo – o zi planificată pe ritmul tău">
+  <meta property="og:description" content="Intră în lista de așteptare, invită prieteni și votează funcțiile pe care le construim primele.">
+  <meta property="og:type" content="website">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='9' fill='%237c3aed'/%3E%3Ccircle cx='16' cy='16' r='8' fill='none' stroke='%23fff' stroke-width='2.5'/%3E%3Cpath d='M16 11v5l3 2' stroke='%23fff' stroke-width='2.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <symbol id="i-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="12" cy="12" r="4"/>
+      <path d="M12 2v2M12 20v2M2 12h2M20 12h2M5 5l1.5 1.5M17.5 17.5L19 19M5 19l1.5-1.5M17.5 6.5L19 5"/>
+    </symbol>
+    <symbol id="i-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M20 14.5A8 8 0 019.5 4 8 8 0 1020 14.5z"/>
+    </symbol>
+    <symbol id="i-clock" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="12" cy="12" r="8"/>
+      <path d="M12 8v4l3 2"/>
+    </symbol>
+  </svg>
+
+  <div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
+
+  <header class="site-header">
+    <div class="wrap bar">
+      <a class="logo" href="#top">
+        <span class="logo-mark"><svg width="20" height="20"><use href="#i-clock"></use></svg></span>
+        Tempo
+      </a>
+      <nav class="nav" id="nav" aria-label="Principal">
+        <a href="#cum-functioneaza">Cum funcționează</a>
+        <a href="#recompense">Recompense</a>
+        <a href="#preturi">Prețuri</a>
+        <a href="#voteaza">Votează</a>
+        <a href="#intrebari">Întrebări</a>
+      </nav>
+      <button class="theme-btn" id="themeBtn" type="button" aria-label="Schimbă tema">
+        <svg width="20" height="20" id="themeIcon"><use href="#i-moon"></use></svg>
+      </button>
+      <a class="btn sm" id="headerJoin" href="#signup">Intră în listă</a>
+      <button class="burger" id="burger" type="button" aria-label="Deschide meniul" aria-expanded="false" aria-controls="nav"><i></i><i></i><i></i></button>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div class="blob one"></div>
+      <div class="blob two"></div>
+      <div class="blob three"></div>
+
+      <div class="wrap hero-inner">
+        <div>
+          <h1>O zi planificată <em>pe ritmul tău.</em></h1>
+          <p class="lead">Tempo învață cât durează de fapt lucrurile pentru tine și îți aranjează ziua în jurul lor. Intră în lista de așteptare și alege ce construim primul.</p>
+          <div class="proof">
+            <div class="faces" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+            <span><b data-total>0</b> persoane sunt deja în listă</span>
+          </div>
+        </div>
+
+        <div class="panel" id="signup"></div>
+      </div>
+    </section>
+
+    <section id="cum-functioneaza" class="tone-lilac">
+      <div class="wrap">
+        <h2 data-reveal>Trei pași până la acces.</h2>
+        <ol class="steps" data-reveal-group>
+          <li>
+            <h3>Intră în listă</h3>
+            <p>Îți lași emailul și primești locul tău și un link personal de invitație.</p>
+          </li>
+          <li>
+            <h3>Invită prieteni</h3>
+            <p>Fiecare prieten care intră cu linkul tău te urcă în clasament.</p>
+          </li>
+          <li>
+            <h3>Primești acces</h3>
+            <p>Cei din fruntea clasamentului intră primii și își deblochează recompensele.</p>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <section id="recompense">
+      <div class="wrap">
+        <h2>Invită mai mulți, primești mai mult.</h2>
+        <p class="sub" id="rewardsNote"></p>
+
+        <div class="split" data-reveal-group>
+          <div class="card">
+            <h3>Recompensele tale</h3>
+            <div class="progress"><i id="progressBar"></i></div>
+            <ul class="rewards" id="rewards"></ul>
+          </div>
+
+          <div class="card">
+            <h3>Clasamentul invitațiilor</h3>
+            <ol class="board" id="board"></ol>
+          </div>
+        </div>
+      </div>
+    </section>
+
+        <section id="preturi">
+      <div class="wrap">
+        <h2>Gratuit la început, Pro când ai nevoie.</h2>
+        <p class="sub">Prețurile sunt orientative și se pot schimba până la lansare.</p>
+        <div class="plans" data-reveal-group>
+          <article class="plan">
+            <h3>Gratuit</h3>
+            <p class="price"><b>0 lei</b><span>pentru totdeauna</span></p>
+            <ul>
+              <li>Planificare zilnică</li>
+              <li>Până la 3 liste</li>
+              <li>Aplicație pe telefon și pe web</li>
+            </ul>
+          </article>
+          <article class="plan featured">
+            <h3>Pro</h3>
+            <p class="price"><b>19 lei</b><span>pe lună, sau 190 lei pe an</span></p>
+            <ul>
+              <li>Tot ce include Gratuit</li>
+              <li>Sincronizare cu calendarul</li>
+              <li>Mod offline și widget</li>
+              <li>Spații comune pentru familie sau echipă</li>
+            </ul>
+            <a class="btn" href="#signup" data-scroll-signup>Intră în listă</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="voteaza" class="tone-peach">
+      <div class="wrap">
+        <h2>Tu alegi ce construim primul.</h2>
+        <p class="sub" id="voteNote"></p>
+        <div class="votes" id="votes"></div>
+      </div>
+    </section>
+
+    <section id="intrebari" class="tone-lilac">
+      <div class="wrap">
+        <h2>Întrebări frecvente.</h2>
+        <div class="faq-list">
+          <details>
+            <summary>Cât costă Tempo?</summary>
+            <p>Tempo va avea un plan gratuit. Cei din lista de așteptare primesc recompense, de exemplu luni de Pro gratuit.</p>
+          </details>
+          <details>
+            <summary>Cum se stabilește locul din listă?</summary>
+            <p>Locul depinde de câți prieteni inviți cu linkul tău. La număr egal, contează cine s-a înscris mai devreme.</p>
+          </details>
+          <details>
+            <summary>Ce se întâmplă cu emailul meu?</summary>
+            <p>Îl folosim doar ca să te anunțăm când se deschide accesul. În clasament apare ascuns, de exemplu a***@gmail.com.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <div class="final" data-reveal>
+      <div class="wrap">
+        <h2>Fii printre primii care îl încearcă.</h2>
+        <a class="btn" href="#signup" data-scroll-signup>Intră în listă</a>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <span>© <span id="year"></span> Tempo. Produs fictiv, creat ca exemplu de design.</span>
+      <span>Făcut pentru zile mai liniștite.</span>
+    </div>
+  </footer>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <canvas class="confetti" id="confetti" aria-hidden="true"></canvas>
+
+  <script src="js/config.js"></script>
+  <script src="js/api.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
